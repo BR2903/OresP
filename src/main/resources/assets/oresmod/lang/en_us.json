@@ -1,11 +1,13 @@
 {
-  "itemGroup.oresp_tab": "OresP",
+  "itemGroup.orespmod.oresp": "OresP",
+
   "block.orespmod.silver_ore": "Silver Ore",
   "block.orespmod.uranium_ore": "Uranium Ore",
   "block.orespmod.titanium_ore": "Titanium Ore",
   "block.orespmod.lithium_ore": "Lithium Ore",
   "block.orespmod.tin_ore": "Tin Ore",
   "block.orespmod.oil_block": "Oil Block",
+
   "item.orespmod.silver_ingot": "Silver Ingot",
   "item.orespmod.uranium_ingot": "Uranium Ingot",
   "item.orespmod.titanium_ingot": "Titanium Ingot",

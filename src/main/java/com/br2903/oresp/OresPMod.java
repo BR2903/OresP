@@ -17,9 +17,6 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-import net.minecraft.world.item.CreativeModeTabs;
-
-// El valor aquí debe coincidir con el modid del archivo neoforge.mods.toml
 @Mod(OresPMod.MOD_ID)
 public class OresPMod {
     public static final String MOD_ID = "orespmod";
@@ -29,16 +26,16 @@ public class OresPMod {
         // Registros principales
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
-        // Si luego agregas worldgen o tabs personalizados, regístralos aquí también.
-        // ModWorldGen.register(modEventBus);
-        // ModCreativeTab.TABS.register(modEventBus);
+        ModCreativeTabs.TABS.register(modEventBus); // <- tu pestaña creativa
 
         modEventBus.addListener(this::commonSetup);
+
+        // Si SOLO quieres tu pestaña personalizada, puedes eliminar esta línea y el método addCreative.
         modEventBus.addListener(this::addCreative);
 
         NeoForge.EVENT_BUS.register(this);
 
-        // Registro de config si la usas
+        // Config (si la usas)
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
@@ -46,26 +43,9 @@ public class OresPMod {
         LOGGER.info("OresPMod: common setup");
     }
 
-    // Agrega tus ítems/bloques a pestañas creativas vanilla
+    // Opcional: para añadir tus ítems a pestañas vanilla además de tu pestaña personalizada.
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // Bloques de mena en NATURAL_BLOCKS
-        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.accept(ModItems.SILVER_ORE.get());
-            event.accept(ModItems.URANIUM_ORE.get());
-            event.accept(ModItems.TITANIUM_ORE.get());
-            event.accept(ModItems.LITHIUM_ORE.get());
-            event.accept(ModItems.TIN_ORE.get());
-            event.accept(ModItems.OIL_BLOCK.get());
-        }
-
-        // Lingotes y materiales en INGREDIENTS
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.SILVER_INGOT.get());
-            event.accept(ModItems.URANIUM_INGOT.get());
-            event.accept(ModItems.TITANIUM_INGOT.get());
-            event.accept(ModItems.LITHIUM_INGOT.get());
-            event.accept(ModItems.TIN_INGOT.get());
-        }
+        // Vacío o elimina este método si no lo necesitas.
     }
 
     @SubscribeEvent
