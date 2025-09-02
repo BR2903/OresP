@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "orespmod:silver_ore",
+    "orespmod:uranium_ore",
+    "orespmod:titanium_ore",
+    "orespmod:lithium_ore",
+    "orespmod:tin_ore",
+    "orespmod:oil_block"
+  ]
+}
